@@ -41,13 +41,19 @@ input_scaled = scaler.transform(input_data)
 
 if st.button("Predict Segment"):
     cluster = kmeans.predict(input_scaled)[0]
-    
-    st.write(f"Predicted Customer Segment: Cluster {cluster}")
-    
-    st.write("""Cluster 0: High Income, web visiters ,High Spending - Premium Customers"""
-                """Cluster 1: Moderate Income, Moderate Spending - Average Customers"""
-                """Cluster 2: High Web Purchases, High Store Purchases - Digital Buyers"""
-                """Cluster 3: Low Income, Low Spending - Budget Customers"""
-                """Cluster 4: Moderate Income, High Spending - Loyal Customers"""
-                """Cluster 5: Low Recency, Inactive Customers""")
+
+    # show the result prominently
+    st.success(f"🎯 Predicted Customer Segment: **Cluster {cluster}**")
+
+    # detailed description of all clusters using emojis and markdown list
+    st.markdown("""
+**Cluster breakdown:**
+
+- 🥇 **Cluster 0**: High income, frequent web visitors, high spending — *Premium Customers*
+- 😊 **Cluster 1**: Moderate income & spending — *Average Customers*
+- 🛒 **Cluster 2**: High web & store purchases — *Digital Buyers*
+- 💸 **Cluster 3**: Low income, low spending — *Budget Customers*
+- 🤝 **Cluster 4**: Moderate income, high spending — *Loyal Customers*
+- 💤 **Cluster 5**: Low recency (inactive) — *Inactive Customers*
+""")
              
