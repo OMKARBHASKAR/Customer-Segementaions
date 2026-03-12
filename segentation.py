@@ -13,10 +13,12 @@ st.write("Enter customer data to predict their segment.")
 
 
 age = st.number_input("Age", min_value=18, max_value=100, value=30)
-income = st.number_input("Annual Income (k$)", min_value=20000, value=50)
-Total_spend = st.number_input("Total Spending (sum of purchases)", min_value=0,max_value=1000, value=50)
+# income is measured in thousands of dollars; default value should respect the min_value
+# previous min_value of 20000 caused a StreamlitValueBelowMinError when value=50
+income = st.number_input("Annual Income (k$)", min_value=0, value=50)
+Total_spend = st.number_input("Total Spending (sum of purchases)", min_value=0, max_value=1000, value=50)
 num_web_purchases = st.number_input("Number of Web Purchases", min_value=0, value=10)
-num_store_purchases = st.number_input("Number of Store Purchases", min_value=0  , max_value =100, value=5)
+num_store_purchases = st.number_input("Number of Store Purchases", min_value=0, max_value=100, value=5)
 num_web_visits = st.number_input("Number of Web Visits", min_value=0, max_value=50, value=20)
 recency = st.number_input("Recency (days since last purchase)", min_value=0, max_value=365, value=30)
 
