@@ -23,13 +23,17 @@ num_web_visits = st.number_input("Number of Web Visits", min_value=0, max_value=
 recency = st.number_input("Recency (days since last purchase)", min_value=0, max_value=365, value=30)
 
 
+# construct DataFrame using the exact feature names that were used when
+# fitting the scaler and training kmeans (see Analysis_Model.ipynb):
+# ['Age','Income','Total_spend','NumWebPurchases','NumStorePurchases',
+#  'NumWebVisitsMonth','Recency']
 input_data = pd.DataFrame({
     "Age": [age],
     "Income": [income],
     "Total_spend": [Total_spend],
-    "num_web_purchases": [num_web_purchases],
-    "num_store_purchases": [num_store_purchases],
-    "NumVisitsMonth": [num_web_visits],
+    "NumWebPurchases": [num_web_purchases],
+    "NumStorePurchases": [num_store_purchases],
+    "NumWebVisitsMonth": [num_web_visits],
     "Recency": [recency]
 })
 
